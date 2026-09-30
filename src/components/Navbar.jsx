@@ -19,25 +19,43 @@ const Navbar = () => {
                 <div className="logo-section">
                     <img src={logoImage} alt="Klickify Agency" className="navbar-logo-img" style={{ mixBlendMode: 'screen' }} />
                 </div>
-                <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-                    {['services', 'portfolio', 'contact'].map(id => (
+                <div className="nav-links-mobile" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+                    {[['services', 'Services'], ['portfolio', 'Portfolio'], ['about', 'About'], ['contact', 'Contact']].map(([id, label]) => (
                         <a
                             key={id}
                             href={`#${id}`}
+                            className="nav-link-text"
                             style={{
                                 color: '#a0a0a0',
                                 textDecoration: 'none',
                                 fontSize: '0.9rem',
                                 fontWeight: '500',
-                                textTransform: 'capitalize',
                                 transition: 'color 0.2s',
                             }}
                             onMouseEnter={e => e.target.style.color = '#00E5FF'}
                             onMouseLeave={e => e.target.style.color = '#a0a0a0'}
                         >
-                            {id}
+                            {label}
                         </a>
                     ))}
+                    <a
+                        href="#contact"
+                        className="nav-cta-btn"
+                        style={{
+                            background: 'linear-gradient(135deg, #00E5FF, #00CED1)',
+                            color: '#000',
+                            textDecoration: 'none',
+                            fontSize: '0.9rem',
+                            fontWeight: '700',
+                            padding: '10px 22px',
+                            borderRadius: '50px',
+                            transition: 'transform 0.2s, box-shadow 0.2s',
+                        }}
+                        onMouseEnter={e => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 6px 20px rgba(0,229,255,0.4)'; }}
+                        onMouseLeave={e => { e.target.style.transform = 'none'; e.target.style.boxShadow = 'none'; }}
+                    >
+                        Get Started
+                    </a>
                 </div>
             </div>
         </nav>
